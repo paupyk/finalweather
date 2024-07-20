@@ -9,7 +9,7 @@ function App() {
         <Weather defaultCity="Los Angeles" />
       <footer>
         This project was coded by Kaylea Paup and is{" "}
-        <a href="https://github.com/paupyk/finalweather" target="_blank">
+        <a href="https://github.com/paupyk/finalweather" target="_blank" rel="noreferrer">
           open-soucred on GitHub
         </a>
         </footer>
