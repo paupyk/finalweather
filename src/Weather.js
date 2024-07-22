@@ -3,7 +3,12 @@ import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 import axios from "axios";
 
+function Weather() {
+  // Define your state variables using the useState hook
+  const [weatherData, setWeatherData] = useState({ready: false});
+  const [city, setCity] = useState('');
 
+  // Define the necessary functions
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -14,26 +19,26 @@ import axios from "axios";
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       city: response.data.name,
-    iconURL: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-        });
-    }
+      iconURL: "https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+    });
+  }
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        search();
-    }
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
 
-    function handleCityChange(event) {
+  function handleCityChange(event) {
     setCity(event.target.value);
-    }
-    
-        function search() {
-        const apiKey = "dt1bb39f7643d6635aece74b30o7b493";
-        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
-    }
+  }
 
-if (weatherData.ready) {
+  function search() {
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  // Return JSX element within the component
   return (
     <div className="Weather">
       <form onSubmit={handleSubmit}>
@@ -57,10 +62,8 @@ if (weatherData.ready) {
         </div>
       </form>
       <WeatherInfo data={weatherData} />
-      <WeatherForecast coordinates={weatherData.coordinates} />
     </div>
   );
-} else {
-  search(); // Assuming search() is a function that fetches data
-  return <div>Loading...</div>;
 }
+
+export default Weather;

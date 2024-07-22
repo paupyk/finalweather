@@ -2,7 +2,6 @@ import React from "react";
 import FriendlyDate from "./FriendlyDate";
 
 export default function WeatherInfo(props) {
-    const weatherData = props.data;
     return ( 
     <div className="WeatherInfo">
   <h1>{weatherData.city}</h1>
