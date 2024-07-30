@@ -11,14 +11,14 @@ function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      coordinates: response.data.coord,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
+      coordinates: response.data.coordinates,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+      date: new Date(response.data.time * 1000),
+      description: response.data.condition.description,
       wind: response.data.wind.speed,
-      city: response.data.name,
-    icon: response.data.weather[0].icon,
+      city: response.data.city,
+      icon: response.data.condition.icon,
     });
   }
 
