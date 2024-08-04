@@ -3,13 +3,14 @@ import FriendlyDate from "./FriendlyDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
+
 export default function WeatherInfo(props) {
   return (
     <div className="weatherInfo">
       <h2> {props.data.city} </h2>
       <ul>
         <li>
-          <FriendlyDate date={props.data.date} />{" "}
+          <FriendlyDate date={props.data.date} />
         </li>
         <li className="text-capitalize"> {props.data.description} </li>
       </ul>
