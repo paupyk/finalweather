@@ -34,13 +34,10 @@ function handleResponse(response) {
             </div>
         );
     } else {
-        let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
-        let longitude = props.coordinates.longitude;
-        let latitude = props.coordinates.latitude;
-        let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+    let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${props.coordinates.longitude}&lat=${props.coordinates.latitude}&key=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
         
-        axios.get(apiUrl).then(handleResponse);
-
         return null;
     }
 }
