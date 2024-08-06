@@ -16,6 +16,11 @@ function handleResponse(response) {
         setForecast(response.data.daily);
         setLoaded(true);
     }
+
+    function load() {
+    const apiKey = "4o0269f4b7t3d5f7f0cfc4a0af394b27";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${props.coordinates.longitude}&lat=${props.coordinates.latitude}&key=${apiKey}&units=imperial`;
+    }
     if (loaded) {
         console.log(props);
         return (

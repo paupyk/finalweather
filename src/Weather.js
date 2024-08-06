@@ -33,7 +33,7 @@ function Weather(props) {
 
   function search() {
     const apiKey = "4o0269f4b7t3d5f7f0cfc4a0af394b27";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
 
