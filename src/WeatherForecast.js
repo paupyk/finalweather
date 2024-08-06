@@ -28,13 +28,15 @@ function handleResponse(response) {
                                     <WeatherForecastDay data={dailyForecast} />
                                 </div>
                             );
+                        } else {
+                            return null;
                         }
                      })}
                 </div>
             </div>
         );
     } else {
-    let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
+    const apiKey = "4o0269f4b7t3d5f7f0cfc4a0af394b27";
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${props.coordinates.longitude}&lat=${props.coordinates.latitude}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
         
